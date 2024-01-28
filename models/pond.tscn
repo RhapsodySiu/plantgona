@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://nqjp3ebi7n5p"]
+
+[ext_resource type="Material" uid="uid://wh8m6jb8ktpj" path="res://addons/character-controller/example/main/materials/water.tres" id="1_dnbv2"]
+[ext_resource type="PackedScene" uid="uid://bl5oxrd4onldi" path="res://models/Hill_desert_003.fbx" id="2_u7ywp"]
+[ext_resource type="PackedScene" uid="uid://5pn0g5nwgual" path="res://models/Hill_desert_002.fbx" id="3_hcp5k"]
+[ext_resource type="PackedScene" uid="uid://c5c68nqt7t3wp" path="res://models/Hill_desert_005.fbx" id="4_hwnh3"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8m6c4"]
+material = ExtResource("1_dnbv2")
+top_radius = 3.0
+bottom_radius = 3.0
+height = 0.5
+
+[node name="Pond" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_8m6c4")
+
+[node name="Hill_desert_003" parent="." instance=ExtResource("2_u7ywp")]
+transform = Transform3D(0.2, 0, 0, 0, 0.08, 0, 0, 0, 0.2, -1, -0.095, 3)
+
+[node name="Hill_desert_002" parent="." instance=ExtResource("3_hcp5k")]
+transform = Transform3D(-0.05, 0, 0.0866025, 0, 0.1, 0, -0.0866025, 0, -0.05, -3, -0.175, 1)
+
+[node name="Hill_desert_004" parent="." instance=ExtResource("3_hcp5k")]
+transform = Transform3D(0.05, 0, 0.0866025, 0, 0.1, 0, -0.0866025, 0, 0.05, 3, 0, 2)
+
+[node name="Hill_desert_005" parent="." instance=ExtResource("4_hwnh3")]
+transform = Transform3D(0.3, 0, -1.49012e-08, 0, 0.3, 0, 1.49012e-08, 0, 0.3, 0, -0.25, -2)

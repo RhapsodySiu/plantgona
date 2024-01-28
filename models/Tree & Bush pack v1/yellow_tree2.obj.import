@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxpxd3y1nw6uy"
+path="res://.godot/imported/yellow_tree2.obj-eb8c9bf75d817503a48649c1bf4eaeda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/yellow_tree2.obj-eb8c9bf75d817503a48649c1bf4eaeda.mesh"]
+
+source_file="res://models/Tree & Bush pack v1/yellow_tree2.obj"
+dest_files=["res://.godot/imported/yellow_tree2.obj-eb8c9bf75d817503a48649c1bf4eaeda.mesh", "res://.godot/imported/yellow_tree2.obj-eb8c9bf75d817503a48649c1bf4eaeda.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvjwslrvg67p6"]
+
+[ext_resource type="Texture2D" uid="uid://cb4a410d7fkaf" path="res://models/beardie_skin.png" id="1_4ssja"]
+
+[resource]
+albedo_texture = ExtResource("1_4ssja")

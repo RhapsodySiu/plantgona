@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://xryt0xhfq0eh"]
+
+[ext_resource type="Material" uid="uid://cd33iv7awfbrl" path="res://materials/scrubland_base_material.tres" id="1_1v61x"]
+[ext_resource type="PackedScene" uid="uid://bqxrv4lfqbnjg" path="res://models/Mountain_desert_001.fbx" id="2_0e66p"]
+[ext_resource type="PackedScene" uid="uid://d00ypvy6mggpp" path="res://models/Hill_desert_001.fbx" id="2_g7elq"]
+[ext_resource type="PackedScene" uid="uid://qbwc42tge01b" path="res://models/Plateau_desert_002.fbx" id="4_nv7ja"]
+[ext_resource type="PackedScene" uid="uid://drgxk18lq5t8j" path="res://models/Plateau_desert_004.fbx" id="5_7r55t"]
+[ext_resource type="PackedScene" uid="uid://bg6cqllblko13" path="res://models/Mountain_desert_008.fbx" id="6_k16rc"]
+[ext_resource type="PackedScene" uid="uid://c5c68nqt7t3wp" path="res://models/Hill_desert_005.fbx" id="7_jqf5o"]
+[ext_resource type="PackedScene" uid="uid://bl5oxrd4onldi" path="res://models/Hill_desert_003.fbx" id="8_wsmyy"]
+[ext_resource type="PackedScene" uid="uid://wby2l4ryl3p1" path="res://models/Hill_desert_004.fbx" id="9_e8ky8"]
+[ext_resource type="PackedScene" uid="uid://claswikdh7xpo" path="res://models/Mountain_desert_006.fbx" id="10_vbq3d"]
+[ext_resource type="PackedScene" uid="uid://65t5escaf5bp" path="res://models/Mountain_desert_002.fbx" id="11_xqwok"]
+[ext_resource type="PackedScene" uid="uid://ean50a2rx3bj" path="res://models/Plateau_desert_003.fbx" id="12_xu4fx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0lfej"]
+material = ExtResource("1_1v61x")
+size = Vector2(50, 50)
+subdivide_width = 4
+subdivide_depth = 4
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yhj3v"]
+data = PackedVector3Array(25, 0, 25, 15, 0, 25, 25, 0, 15, 15, 0, 25, 15, 0, 15, 25, 0, 15, 15, 0, 25, 5, 0, 25, 15, 0, 15, 5, 0, 25, 5, 0, 15, 15, 0, 15, 5, 0, 25, -5, 0, 25, 5, 0, 15, -5, 0, 25, -5, 0, 15, 5, 0, 15, -5, 0, 25, -15, 0, 25, -5, 0, 15, -15, 0, 25, -15, 0, 15, -5, 0, 15, -15, 0, 25, -25, 0, 25, -15, 0, 15, -25, 0, 25, -25, 0, 15, -15, 0, 15, 25, 0, 15, 15, 0, 15, 25, 0, 5, 15, 0, 15, 15, 0, 5, 25, 0, 5, 15, 0, 15, 5, 0, 15, 15, 0, 5, 5, 0, 15, 5, 0, 5, 15, 0, 5, 5, 0, 15, -5, 0, 15, 5, 0, 5, -5, 0, 15, -5, 0, 5, 5, 0, 5, -5, 0, 15, -15, 0, 15, -5, 0, 5, -15, 0, 15, -15, 0, 5, -5, 0, 5, -15, 0, 15, -25, 0, 15, -15, 0, 5, -25, 0, 15, -25, 0, 5, -15, 0, 5, 25, 0, 5, 15, 0, 5, 25, 0, -5, 15, 0, 5, 15, 0, -5, 25, 0, -5, 15, 0, 5, 5, 0, 5, 15, 0, -5, 5, 0, 5, 5, 0, -5, 15, 0, -5, 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5, -5, 0, 5, -15, 0, 5, -5, 0, -5, -15, 0, 5, -15, 0, -5, -5, 0, -5, -15, 0, 5, -25, 0, 5, -15, 0, -5, -25, 0, 5, -25, 0, -5, -15, 0, -5, 25, 0, -5, 15, 0, -5, 25, 0, -15, 15, 0, -5, 15, 0, -15, 25, 0, -15, 15, 0, -5, 5, 0, -5, 15, 0, -15, 5, 0, -5, 5, 0, -15, 15, 0, -15, 5, 0, -5, -5, 0, -5, 5, 0, -15, -5, 0, -5, -5, 0, -15, 5, 0, -15, -5, 0, -5, -15, 0, -5, -5, 0, -15, -15, 0, -5, -15, 0, -15, -5, 0, -15, -15, 0, -5, -25, 0, -5, -15, 0, -15, -25, 0, -5, -25, 0, -15, -15, 0, -15, 25, 0, -15, 15, 0, -15, 25, 0, -25, 15, 0, -15, 15, 0, -25, 25, 0, -25, 15, 0, -15, 5, 0, -15, 15, 0, -25, 5, 0, -15, 5, 0, -25, 15, 0, -25, 5, 0, -15, -5, 0, -15, 5, 0, -25, -5, 0, -15, -5, 0, -25, 5, 0, -25, -5, 0, -15, -15, 0, -15, -5, 0, -25, -15, 0, -15, -15, 0, -25, -5, 0, -25, -15, 0, -15, -25, 0, -15, -15, 0, -25, -25, 0, -15, -25, 0, -25, -15, 0, -25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ustqi"]
+data = PackedVector3Array(25, 0, 25, 15, 0, 25, 25, 0, 15, 15, 0, 25, 15, 0, 15, 25, 0, 15, 15, 0, 25, 5, 0, 25, 15, 0, 15, 5, 0, 25, 5, 0, 15, 15, 0, 15, 5, 0, 25, -5, 0, 25, 5, 0, 15, -5, 0, 25, -5, 0, 15, 5, 0, 15, -5, 0, 25, -15, 0, 25, -5, 0, 15, -15, 0, 25, -15, 0, 15, -5, 0, 15, -15, 0, 25, -25, 0, 25, -15, 0, 15, -25, 0, 25, -25, 0, 15, -15, 0, 15, 25, 0, 15, 15, 0, 15, 25, 0, 5, 15, 0, 15, 15, 0, 5, 25, 0, 5, 15, 0, 15, 5, 0, 15, 15, 0, 5, 5, 0, 15, 5, 0, 5, 15, 0, 5, 5, 0, 15, -5, 0, 15, 5, 0, 5, -5, 0, 15, -5, 0, 5, 5, 0, 5, -5, 0, 15, -15, 0, 15, -5, 0, 5, -15, 0, 15, -15, 0, 5, -5, 0, 5, -15, 0, 15, -25, 0, 15, -15, 0, 5, -25, 0, 15, -25, 0, 5, -15, 0, 5, 25, 0, 5, 15, 0, 5, 25, 0, -5, 15, 0, 5, 15, 0, -5, 25, 0, -5, 15, 0, 5, 5, 0, 5, 15, 0, -5, 5, 0, 5, 5, 0, -5, 15, 0, -5, 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5, -5, 0, 5, -15, 0, 5, -5, 0, -5, -15, 0, 5, -15, 0, -5, -5, 0, -5, -15, 0, 5, -25, 0, 5, -15, 0, -5, -25, 0, 5, -25, 0, -5, -15, 0, -5, 25, 0, -5, 15, 0, -5, 25, 0, -15, 15, 0, -5, 15, 0, -15, 25, 0, -15, 15, 0, -5, 5, 0, -5, 15, 0, -15, 5, 0, -5, 5, 0, -15, 15, 0, -15, 5, 0, -5, -5, 0, -5, 5, 0, -15, -5, 0, -5, -5, 0, -15, 5, 0, -15, -5, 0, -5, -15, 0, -5, -5, 0, -15, -15, 0, -5, -15, 0, -15, -5, 0, -15, -15, 0, -5, -25, 0, -5, -15, 0, -15, -25, 0, -5, -25, 0, -15, -15, 0, -15, 25, 0, -15, 15, 0, -15, 25, 0, -25, 15, 0, -15, 15, 0, -25, 25, 0, -25, 15, 0, -15, 5, 0, -15, 15, 0, -25, 5, 0, -15, 5, 0, -25, 15, 0, -25, 5, 0, -15, -5, 0, -15, 5, 0, -25, -5, 0, -15, -5, 0, -25, 5, 0, -25, -5, 0, -15, -15, 0, -15, -5, 0, -25, -15, 0, -15, -15, 0, -25, -5, 0, -25, -15, 0, -15, -25, 0, -15, -15, 0, -25, -25, 0, -15, -25, 0, -25, -15, 0, -25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_frxmf"]
+data = PackedVector3Array(25, 0, 25, 15, 0, 25, 25, 0, 15, 15, 0, 25, 15, 0, 15, 25, 0, 15, 15, 0, 25, 5, 0, 25, 15, 0, 15, 5, 0, 25, 5, 0, 15, 15, 0, 15, 5, 0, 25, -5, 0, 25, 5, 0, 15, -5, 0, 25, -5, 0, 15, 5, 0, 15, -5, 0, 25, -15, 0, 25, -5, 0, 15, -15, 0, 25, -15, 0, 15, -5, 0, 15, -15, 0, 25, -25, 0, 25, -15, 0, 15, -25, 0, 25, -25, 0, 15, -15, 0, 15, 25, 0, 15, 15, 0, 15, 25, 0, 5, 15, 0, 15, 15, 0, 5, 25, 0, 5, 15, 0, 15, 5, 0, 15, 15, 0, 5, 5, 0, 15, 5, 0, 5, 15, 0, 5, 5, 0, 15, -5, 0, 15, 5, 0, 5, -5, 0, 15, -5, 0, 5, 5, 0, 5, -5, 0, 15, -15, 0, 15, -5, 0, 5, -15, 0, 15, -15, 0, 5, -5, 0, 5, -15, 0, 15, -25, 0, 15, -15, 0, 5, -25, 0, 15, -25, 0, 5, -15, 0, 5, 25, 0, 5, 15, 0, 5, 25, 0, -5, 15, 0, 5, 15, 0, -5, 25, 0, -5, 15, 0, 5, 5, 0, 5, 15, 0, -5, 5, 0, 5, 5, 0, -5, 15, 0, -5, 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5, -5, 0, 5, -15, 0, 5, -5, 0, -5, -15, 0, 5, -15, 0, -5, -5, 0, -5, -15, 0, 5, -25, 0, 5, -15, 0, -5, -25, 0, 5, -25, 0, -5, -15, 0, -5, 25, 0, -5, 15, 0, -5, 25, 0, -15, 15, 0, -5, 15, 0, -15, 25, 0, -15, 15, 0, -5, 5, 0, -5, 15, 0, -15, 5, 0, -5, 5, 0, -15, 15, 0, -15, 5, 0, -5, -5, 0, -5, 5, 0, -15, -5, 0, -5, -5, 0, -15, 5, 0, -15, -5, 0, -5, -15, 0, -5, -5, 0, -15, -15, 0, -5, -15, 0, -15, -5, 0, -15, -15, 0, -5, -25, 0, -5, -15, 0, -15, -25, 0, -5, -25, 0, -15, -15, 0, -15, 25, 0, -15, 15, 0, -15, 25, 0, -25, 15, 0, -15, 15, 0, -25, 25, 0, -25, 15, 0, -15, 5, 0, -15, 15, 0, -25, 5, 0, -15, 5, 0, -25, 15, 0, -25, 5, 0, -15, -5, 0, -15, 5, 0, -25, -5, 0, -15, -5, 0, -25, 5, 0, -25, -5, 0, -15, -15, 0, -15, -5, 0, -25, -15, 0, -15, -15, 0, -25, -5, 0, -25, -15, 0, -15, -25, 0, -15, -15, 0, -25, -25, 0, -15, -25, 0, -25, -15, 0, -25)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wtcnh"]
+data = PackedVector3Array(25, 0, 25, 15, 0, 25, 25, 0, 15, 15, 0, 25, 15, 0, 15, 25, 0, 15, 15, 0, 25, 5, 0, 25, 15, 0, 15, 5, 0, 25, 5, 0, 15, 15, 0, 15, 5, 0, 25, -5, 0, 25, 5, 0, 15, -5, 0, 25, -5, 0, 15, 5, 0, 15, -5, 0, 25, -15, 0, 25, -5, 0, 15, -15, 0, 25, -15, 0, 15, -5, 0, 15, -15, 0, 25, -25, 0, 25, -15, 0, 15, -25, 0, 25, -25, 0, 15, -15, 0, 15, 25, 0, 15, 15, 0, 15, 25, 0, 5, 15, 0, 15, 15, 0, 5, 25, 0, 5, 15, 0, 15, 5, 0, 15, 15, 0, 5, 5, 0, 15, 5, 0, 5, 15, 0, 5, 5, 0, 15, -5, 0, 15, 5, 0, 5, -5, 0, 15, -5, 0, 5, 5, 0, 5, -5, 0, 15, -15, 0, 15, -5, 0, 5, -15, 0, 15, -15, 0, 5, -5, 0, 5, -15, 0, 15, -25, 0, 15, -15, 0, 5, -25, 0, 15, -25, 0, 5, -15, 0, 5, 25, 0, 5, 15, 0, 5, 25, 0, -5, 15, 0, 5, 15, 0, -5, 25, 0, -5, 15, 0, 5, 5, 0, 5, 15, 0, -5, 5, 0, 5, 5, 0, -5, 15, 0, -5, 5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5, -5, 0, 5, -15, 0, 5, -5, 0, -5, -15, 0, 5, -15, 0, -5, -5, 0, -5, -15, 0, 5, -25, 0, 5, -15, 0, -5, -25, 0, 5, -25, 0, -5, -15, 0, -5, 25, 0, -5, 15, 0, -5, 25, 0, -15, 15, 0, -5, 15, 0, -15, 25, 0, -15, 15, 0, -5, 5, 0, -5, 15, 0, -15, 5, 0, -5, 5, 0, -15, 15, 0, -15, 5, 0, -5, -5, 0, -5, 5, 0, -15, -5, 0, -5, -5, 0, -15, 5, 0, -15, -5, 0, -5, -15, 0, -5, -5, 0, -15, -15, 0, -5, -15, 0, -15, -5, 0, -15, -15, 0, -5, -25, 0, -5, -15, 0, -15, -25, 0, -5, -25, 0, -15, -15, 0, -15, 25, 0, -15, 15, 0, -15, 25, 0, -25, 15, 0, -15, 15, 0, -25, 25, 0, -25, 15, 0, -15, 5, 0, -15, 15, 0, -25, 5, 0, -15, 5, 0, -25, 15, 0, -25, 5, 0, -15, -5, 0, -15, 5, 0, -25, -5, 0, -15, -5, 0, -25, 5, 0, -25, -5, 0, -15, -15, 0, -15, -5, 0, -25, -15, 0, -15, -15, 0, -25, -5, 0, -25, -15, 0, -15, -25, 0, -15, -15, 0, -25, -25, 0, -15, -25, 0, -25, -15, 0, -25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gu0js"]
+material = ExtResource("1_1v61x")
+flip_faces = true
+size = Vector2(100, 100)
+subdivide_width = 2
+subdivide_depth = 2
+
+[node name="desert" type="Node3D"]
+
+[node name="planes" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="planes"]
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_0lfej")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planes/MeshInstance3D" groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planes/MeshInstance3D/StaticBody3D" groups=["ground"]]
+shape = SubResource("ConcavePolygonShape3D_yhj3v")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="planes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 0)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_0lfej")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planes/MeshInstance3D2" groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planes/MeshInstance3D2/StaticBody3D" groups=["ground"]]
+shape = SubResource("ConcavePolygonShape3D_ustqi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="planes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 50)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_0lfej")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planes/MeshInstance3D3" groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planes/MeshInstance3D3/StaticBody3D" groups=["ground"]]
+shape = SubResource("ConcavePolygonShape3D_frxmf")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="planes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_0lfej")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="planes/MeshInstance3D4" groups=["ground"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planes/MeshInstance3D4/StaticBody3D" groups=["ground"]]
+shape = SubResource("ConcavePolygonShape3D_wtcnh")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="planes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 24)
+mesh = SubResource("PlaneMesh_gu0js")
+
+[node name="hills" type="Node3D" parent="."]
+
+[node name="Hill_desert_001" parent="hills" instance=ExtResource("2_g7elq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, -1, -16)
+
+[node name="Mountain_desert_001" parent="hills" instance=ExtResource("2_0e66p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 65)
+
+[node name="Plateau_desert_002" parent="hills" instance=ExtResource("4_nv7ja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -29)
+
+[node name="Plateau_desert_004" parent="hills" instance=ExtResource("5_7r55t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -1, 82)
+
+[node name="Mountain_desert_008" parent="hills" instance=ExtResource("6_k16rc")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 5, -4, 68)
+
+[node name="Hill_desert_005" parent="hills" instance=ExtResource("7_jqf5o")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -23, 0, 43)
+
+[node name="Hill_desert_003" parent="hills" instance=ExtResource("8_wsmyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -25)
+
+[node name="Hill_desert_004" parent="hills" instance=ExtResource("9_e8ky8")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -28, -1, 11)
+
+[node name="Mountain_desert_006" parent="hills" instance=ExtResource("10_vbq3d")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 67, -1, -17)
+
+[node name="Mountain_desert_002" parent="hills" instance=ExtResource("11_xqwok")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 76, 0, 11)
+
+[node name="Plateau_desert_003" parent="hills" instance=ExtResource("12_xu4fx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 81, 0, 42)

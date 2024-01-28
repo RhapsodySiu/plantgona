@@ -1,0 +1,15 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bok33y5p8cjp7"]
+
+[resource]
+lifetime_randomness = 0.05
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.2, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 2.0
+angular_velocity_min = 0.1
+angular_velocity_max = 0.1
+radial_accel_max = 0.2
+scale_max = 3.0
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 6

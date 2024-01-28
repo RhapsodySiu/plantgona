@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://rmpehpv51pis"]
+
+[ext_resource type="Script" path="res://components/fruit.gd" id="1_8sfqu"]
+[ext_resource type="AudioStream" uid="uid://bxi4v18ro4mbr" path="res://sounds/eating-sound-effect-36186.mp3" id="2_jo0eq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xga2h"]
+albedo_color = Color(0.607843, 0.113725, 0.141176, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4l62v"]
+material = SubResource("StandardMaterial3D_xga2h")
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mju24"]
+albedo_color = Color(0.388235, 0.192157, 0.168627, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ft010"]
+material = SubResource("StandardMaterial3D_mju24")
+top_radius = 0.03
+bottom_radius = 0.02
+height = 0.5
+radial_segments = 8
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p1ara"]
+albedo_color = Color(0.34902, 0.478431, 0.223529, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ycsj3"]
+material = SubResource("StandardMaterial3D_p1ara")
+size = Vector3(0.02, 0.2, 0.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wglny"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yslgv"]
+radius = 0.26
+
+[node name="Fruit" type="Node3D"]
+script = ExtResource("1_8sfqu")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 6
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("SphereMesh_4l62v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.242489, 0)
+mesh = SubResource("CylinderMesh_ft010")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.4, 0, 0, 0, 0.368019, -0.156723, 0, 0.156723, 0.368019, 0, 0.320927, -0.083369)
+mesh = SubResource("BoxMesh_ycsj3")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0364445, 0)
+shape = SubResource("SphereShape3D_wglny")
+
+[node name="Area3D" type="Area3D" parent="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+monitorable = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0364445, 0)
+shape = SubResource("SphereShape3D_yslgv")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_jo0eq")
+
+[connection signal="body_entered" from="RigidBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

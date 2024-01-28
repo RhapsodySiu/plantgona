@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://81aiv271b6t5"
+path="res://.godot/imported/orange_bush2.obj-de2fce2ec7eff630d45b97e2abd4a12e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/orange_bush2.obj-de2fce2ec7eff630d45b97e2abd4a12e.mesh"]
+
+source_file="res://models/Tree & Bush pack v1/orange_bush2.obj"
+dest_files=["res://.godot/imported/orange_bush2.obj-de2fce2ec7eff630d45b97e2abd4a12e.mesh", "res://.godot/imported/orange_bush2.obj-de2fce2ec7eff630d45b97e2abd4a12e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

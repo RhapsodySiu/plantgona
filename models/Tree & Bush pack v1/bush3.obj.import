@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cwfn1sd5iif20"
+path="res://.godot/imported/bush3.obj-ded58271203c229dff7a6e8ad5c00da9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bush3.obj-ded58271203c229dff7a6e8ad5c00da9.mesh"]
+
+source_file="res://models/Tree & Bush pack v1/bush3.obj"
+dest_files=["res://.godot/imported/bush3.obj-ded58271203c229dff7a6e8ad5c00da9.mesh", "res://.godot/imported/bush3.obj-ded58271203c229dff7a6e8ad5c00da9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

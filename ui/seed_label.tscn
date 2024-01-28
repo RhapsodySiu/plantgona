@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://wn3r66enw7es"]
+
+[ext_resource type="Texture2D" uid="uid://g06vp7xucgqx" path="res://textures/apple.png" id="1_34m8i"]
+
+[node name="SeedLabel" type="TextureRect" groups=["seed_label"]]
+clip_contents = true
+custom_minimum_size = Vector2(128, 128)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_34m8i")

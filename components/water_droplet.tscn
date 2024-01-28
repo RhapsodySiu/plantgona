@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://jk5bikugfepq"]
+
+[ext_resource type="Script" path="res://components/water_droplet.gd" id="1_komwv"]
+[ext_resource type="Material" uid="uid://wh8m6jb8ktpj" path="res://addons/character-controller/example/main/materials/water.tres" id="2_umxjd"]
+[ext_resource type="AudioStream" uid="uid://qr0yt814rvop" path="res://sounds/splash-6213.mp3" id="3_3w16q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dhsxv"]
+material = ExtResource("2_umxjd")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cvn6r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g2y1q"]
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_cr4p8"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody3D/MeshInstance3D:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ucn2e"]
+_data = {
+"fade": SubResource("Animation_cr4p8")
+}
+
+[node name="ball" type="Node3D"]
+script = ExtResource("1_komwv")
+elasticity = 0.8
+active_time = 20.0
+fading_time = 10.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["ball"]]
+collision_layer = 4
+collision_mask = 7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_dhsxv")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_cvn6r")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D" groups=["ball"]]
+collision_layer = 3
+collision_mask = 3
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+shape = SubResource("SphereShape3D_g2y1q")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ucn2e")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_3w16q")
+autoplay = true
+
+[connection signal="area_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

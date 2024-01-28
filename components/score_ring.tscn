@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://cf8b3a1mkaull"]
+
+[ext_resource type="Script" path="res://components/score_ring.gd" id="1_bqhbd"]
+[ext_resource type="Material" uid="uid://c4xq3bxoaielb" path="res://materials/glowy.tres" id="1_ft4q5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_loqwb"]
+height = 1.0
+radius = 2.61374
+
+[sub_resource type="Gradient" id="Gradient_nqats"]
+offsets = PackedFloat32Array(0.0051458, 1)
+colors = PackedColorArray(0.0127625, 0.389167, 0.515924, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ruw11"]
+gradient = SubResource("Gradient_nqats")
+
+[sub_resource type="Curve" id="Curve_jluxi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.974482, 0.124555), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_k78d3"]
+curve = SubResource("Curve_jluxi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7x1la"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.1
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 2.5
+gravity = Vector3(0, 0.5, 0)
+radial_accel_min = -1.0
+radial_accel_max = 1.0
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_k78d3")
+color = Color(0.152941, 0.356863, 0.47451, 1)
+color_ramp = SubResource("GradientTexture1D_ruw11")
+
+[sub_resource type="SphereMesh" id="SphereMesh_l5qvt"]
+material = ExtResource("1_ft4q5")
+radius = 0.05
+height = 0.1
+
+[sub_resource type="TorusMesh" id="TorusMesh_h6nag"]
+material = ExtResource("1_ft4q5")
+inner_radius = 2.9
+outer_radius = 3.0
+rings = 32
+ring_segments = 16
+
+[node name="ScoreRing" type="Area3D" groups=["score_ring"]]
+collision_mask = 7
+monitoring = false
+script = ExtResource("1_bqhbd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_loqwb")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 128
+lifetime = 2.0
+randomness = 0.2
+visibility_aabb = AABB(-3.0828, -1.83135, -4, 6.16559, 3.66269, 8)
+process_material = SubResource("ParticleProcessMaterial_7x1la")
+draw_pass_1 = SubResource("SphereMesh_l5qvt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+mesh = SubResource("TorusMesh_h6nag")

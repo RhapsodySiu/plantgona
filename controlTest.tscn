@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://b0dwufcds4djq"]
+
+[ext_resource type="Script" path="res://scene.gd" id="1_j6jr0"]
+[ext_resource type="PackedScene" uid="uid://h3b2hi2ay16d" path="res://controllers/my_player.tscn" id="2_afj3c"]
+[ext_resource type="Texture2D" uid="uid://qpp4wn8h8oxx" path="res://textures/AllSkyFree_Sky_EpicBlueSunset_Equirect.png" id="2_syq5v"]
+[ext_resource type="PackedScene" uid="uid://xryt0xhfq0eh" path="res://models/desert.tscn" id="6_8gj1n"]
+[ext_resource type="PackedScene" uid="uid://bf6qhfkww4l3f" path="res://components/water_source.tscn" id="10_2k182"]
+[ext_resource type="PackedScene" uid="uid://wn3r66enw7es" path="res://ui/seed_label.tscn" id="11_047re"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_lg5ec"]
+panorama = ExtResource("2_syq5v")
+
+[sub_resource type="Sky" id="Sky_vktk5"]
+sky_material = SubResource("PanoramaSkyMaterial_lg5ec")
+
+[sub_resource type="Environment" id="Environment_fe0y3"]
+background_mode = 2
+sky = SubResource("Sky_vktk5")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_4c7sl"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.03, 0, 0, 0, 0, 0, 0, 0, 0, 10.636, -0.247162, -10.717, 0, 0, 0, 0, 0, 0, -1.23838, -3.32498, -17.6428, 0, 0, 0, 0, 0, 0, -19.3664, -3.3085, -0.100971, 0, 0, 0, 0, 0, 0, -19.8144, -0.539967, 16.8377, 0, 0, 0, 0, 0, 0, -4.48222, 2.68999, 21.3434, 0, 0, 0, 0, 0, 0, 15.9922, 3.77763, 8.12727, 0, 0, 0, 0, 0, 0, 18.224, 1.51996, -7.48186, 0, 0, 0, 0, 0, 0, 14.8917, 0.893742, -8.00926),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lhqq5"]
+
+[node name="GameScene" type="Node3D"]
+script = ExtResource("1_j6jr0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 1.45
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fe0y3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.992711, -0.120518, 0, 0.120518, 0.992711, 0, 3.53223, 6.44812)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.24107, 0)
+curve = SubResource("Curve3D_4c7sl")
+
+[node name="Balls" type="Node3D" parent="."]
+
+[node name="desert" parent="." instance=ExtResource("6_8gj1n")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="MyPlayer" parent="." instance=ExtResource("2_afj3c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="DeadHeight" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeadHeight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+shape = SubResource("WorldBoundaryShape3D_lhqq5")
+
+[node name="SpawnPosition" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33609, 0)
+
+[node name="water_source" parent="." instance=ExtResource("10_2k182")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -45)
+
+[node name="water_source2" parent="." instance=ExtResource("10_2k182")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 176, 0, 55)
+
+[node name="water_source3" parent="." instance=ExtResource("10_2k182")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 29, 0, 166)
+
+[node name="InGameUI" type="Control" parent="."]
+custom_minimum_size = Vector2(1020, 768)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="FruitCountContainer" type="HBoxContainer" parent="InGameUI"]
+custom_minimum_size = Vector2(1080, 128)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SeedLabel" parent="InGameUI/FruitCountContainer" instance=ExtResource("11_047re")]
+layout_mode = 2
+
+[connection signal="body_entered" from="DeadHeight" to="." method="_on_dead_height_body_entered"]

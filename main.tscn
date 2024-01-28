@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjuo7k32fqjnb"]
+
+[ext_resource type="PackedScene" uid="uid://dlb2bgd3dx58f" path="res://models/beardie.tscn" id="1_g1y7w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ll600"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_hdguy"]
+sky_material = SubResource("ProceduralSkyMaterial_ll600")
+
+[sub_resource type="Environment" id="Environment_mlqk5"]
+background_mode = 2
+sky = SubResource("Sky_hdguy")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mlqk5")
+
+[node name="beardie" parent="." instance=ExtResource("1_g1y7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43429, -1.19209e-07, -0.226541)
+
+[node name="beardie2" parent="." instance=ExtResource("1_g1y7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.27871, -1.19209e-07, -0.226541)
+
+[node name="beardie3" parent="." instance=ExtResource("1_g1y7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15936, -1.19209e-07, -0.226541)
+
+[node name="beardie4" parent="." instance=ExtResource("1_g1y7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79394, -1.19209e-07, -0.226541)
+
+[node name="beardie5" parent="." instance=ExtResource("1_g1y7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5278, -1.19209e-07, -0.226541)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999075, -1.86092e-09, -0.0429916, -0.0124303, 0.957289, 0.288865, 0.0411554, 0.289132, -0.956404, 4.39487, 1.79925, -7.15808)

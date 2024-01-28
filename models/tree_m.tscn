@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcaswttes0qe"]
+
+[ext_resource type="ArrayMesh" uid="uid://dooxqkcd3j55f" path="res://models/Tree & Bush pack v1/tree1.obj" id="1_5c0eo"]
+[ext_resource type="Script" path="res://models/tree.gd" id="1_i27lg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_untkj"]
+size = Vector3(1.74841, 2.72538, 1.56096)
+
+[node name="tree_m" type="Node3D"]
+script = ExtResource("1_i27lg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["tree"]]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.26329, -3.06635, 1.34229)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.851533, 3.39533, -0.928946)
+shape = SubResource("BoxShape3D_untkj")
+
+[node name="Tree1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.26329, -3.06635, 1.34229)
+mesh = ExtResource("1_5c0eo")

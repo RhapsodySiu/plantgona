@@ -1,0 +1,29 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4w6a32lvvxcc"]
+
+[ext_resource type="Script" path="res://components/sapling.gd" id="1_jy0nf"]
+[ext_resource type="PackedScene" uid="uid://2obnn2xbk65m" path="res://models/tree_s.tscn" id="2_xkof1"]
+[ext_resource type="PackedScene" uid="uid://bxcaswttes0qe" path="res://models/tree_m.tscn" id="3_8uegy"]
+[ext_resource type="PackedScene" uid="uid://ddgbfefquarvv" path="res://models/tree_l.tscn" id="4_w6qwy"]
+[ext_resource type="PackedScene" uid="uid://cf8b3a1mkaull" path="res://components/score_ring.tscn" id="5_lv52g"]
+[ext_resource type="PackedScene" uid="uid://rmpehpv51pis" path="res://models/fruit.tscn" id="5_xrf71"]
+[ext_resource type="AudioStream" uid="uid://c8x351phdu1t" path="res://sounds/cartoon-slide-whistle-up-2.mp3" id="7_r7pxk"]
+[ext_resource type="AudioStream" uid="uid://dkjgw7t2dtgxp" path="res://sounds/water-drip-45622.mp3" id="8_00arf"]
+
+[node name="Sapling" type="Node3D" groups=["sapling"]]
+script = ExtResource("1_jy0nf")
+trees = Array[PackedScene]([ExtResource("2_xkof1"), ExtResource("3_8uegy"), ExtResource("4_w6qwy")])
+fruit_scene = ExtResource("5_xrf71")
+
+[node name="ScoreRing" parent="." instance=ExtResource("5_lv52g")]
+
+[node name="Tree" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="GrowSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_r7pxk")
+
+[node name="WaterSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_00arf")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

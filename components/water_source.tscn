@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf6qhfkww4l3f"]
+
+[ext_resource type="Script" path="res://components/water_source.gd" id="1_alysa"]
+[ext_resource type="PackedScene" uid="uid://nqjp3ebi7n5p" path="res://models/pond.tscn" id="1_bhins"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ooss3"]
+height = 0.607
+radius = 3.0
+
+[node name="water_source" type="Node3D"]
+script = ExtResource("1_alysa")
+
+[node name="Pond" parent="." instance=ExtResource("1_bhins")]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.075, 0)
+collision_layer = 2
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.055, 0)
+shape = SubResource("CylinderShape3D_ooss3")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

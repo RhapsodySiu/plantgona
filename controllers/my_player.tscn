@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://h3b2hi2ay16d"]
+
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://addons/character-controller/example/main/player.tscn" id="1_ympdv"]
+[ext_resource type="PackedScene" uid="uid://dlb2bgd3dx58f" path="res://models/beardie.tscn" id="2_f3ua6"]
+[ext_resource type="Script" path="res://controllers/player.gd" id="2_p7sf5"]
+[ext_resource type="Material" uid="uid://bok33y5p8cjp7" path="res://materials/bubble_particle_process_material.tres" id="4_ut5w7"]
+[ext_resource type="Material" uid="uid://cacjmogakpvks" path="res://materials/explode_particle_process_material.tres" id="5_f5nkb"]
+[ext_resource type="Script" path="res://controllers/player_input.gd" id="6_qorvp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bu080"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vgf0f"]
+material = SubResource("StandardMaterial3D_bu080")
+radius = 0.4
+height = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_doc8n"]
+albedo_color = Color(0.917647, 0.584314, 0.486275, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mc14s"]
+material = SubResource("StandardMaterial3D_doc8n")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7etf7"]
+properties/0/path = NodePath(".:input_dir")
+properties/0/spawn = false
+properties/0/sync = true
+properties/0/watch = false
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_4q522"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:corr_player_id")
+properties/1/spawn = true
+properties/1/sync = false
+properties/1/watch = false
+properties/2/path = NodePath(".:velocity")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[node name="MyPlayer" groups=["player"] instance=ExtResource("1_ympdv")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_p7sf5")
+input_sow_action_name = "sow"
+underwater_env = null
+corr_player_id = 0
+speed = 7
+acceleration = 6
+deceleration = 7
+
+[node name="Collision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.0140319, 0.999902, 0, -0.999902, -0.0140319, 0.0132708, -0.0517457, 0)
+
+[node name="Head Check" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05706, 0)
+
+[node name="Camera" parent="Head" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.14995)
+
+[node name="Player Audios" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176705, 0)
+
+[node name="beardie" parent="." index="10" instance=ExtResource("2_f3ua6")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.176967, 0)
+
+[node name="WaterSpawner" type="Node3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.486325, -1.60762)
+
+[node name="SaplingSpawner" type="Node3D" parent="." index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.254294, 2.034)
+
+[node name="Bubble" type="GPUParticles3D" parent="." index="13"]
+emitting = false
+amount = 32
+sub_emitter = NodePath("../Explode")
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.1
+randomness = 0.1
+process_material = ExtResource("4_ut5w7")
+draw_pass_1 = SubResource("SphereMesh_vgf0f")
+
+[node name="Explode" type="GPUParticles3D" parent="." index="14"]
+emitting = false
+process_material = ExtResource("5_f5nkb")
+draw_pass_1 = SubResource("SphereMesh_mc14s")
+
+[node name="RespawnTimer" type="Timer" parent="." index="15"]
+wait_time = 4.0
+one_shot = true
+
+[node name="WaterTimer" type="Timer" parent="." index="16"]
+one_shot = true
+
+[node name="Label3D" type="Label3D" parent="." index="17"]
+transform = Transform3D(-0.99945, 0, -0.0331552, 0, 1, 0, 0.0331552, 0, -0.99945, 0.00737989, -0.295499, -1.3414)
+
+[node name="PlayerInput" type="MultiplayerSynchronizer" parent="." index="18"]
+root_path = NodePath(".")
+replication_config = SubResource("SceneReplicationConfig_7etf7")
+script = ExtResource("6_qorvp")
+
+[node name="ServerSychronizer" type="MultiplayerSynchronizer" parent="." index="19"]
+replication_config = SubResource("SceneReplicationConfig_4q522")
+
+[node name="FocusCamera" type="Camera3D" parent="." index="20"]
+transform = Transform3D(-0.991579, 0, 0.129505, 0, 1, 0, -0.129505, 0, -0.991579, 0.21643, -0.0333214, -2.32388)
+
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
+[connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]
+
+[editable path="beardie"]

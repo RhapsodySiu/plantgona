@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlb2bgd3dx58f"]
+
+[ext_resource type="PackedScene" uid="uid://dqgvawook5sjo" path="res://models/beardie.glb" id="1_y8f7w"]
+[ext_resource type="Script" path="res://models/beardie.gd" id="2_vdi8n"]
+[ext_resource type="Material" uid="uid://dvjwslrvg67p6" path="res://materials/beardie_material.tres" id="3_1giwc"]
+
+[node name="beardie" instance=ExtResource("1_y8f7w")]
+script = ExtResource("2_vdi8n")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(0, 0, -0.0256105, 0.999672)
+bones/4/rotation = Quaternion(-0.160824, -0.282646, -0.0730888, 0.942817)
+bones/5/rotation = Quaternion(-0.407674, 0.268079, -0.256655, 0.834304)
+bones/6/rotation = Quaternion(0.376005, -0.468496, 0.643389, 0.474535)
+bones/8/rotation = Quaternion(0.0553971, 1.20319e-07, 7.55083e-09, 0.998464)
+bones/10/rotation = Quaternion(-0.0993756, -0.221436, -0.00946506, 0.970052)
+bones/11/rotation = Quaternion(-0.19127, -0.297999, 0.120416, 0.927422)
+bones/12/rotation = Quaternion(0.179628, 0.711778, -0.481771, 0.478542)
+bones/13/rotation = Quaternion(-0.318018, -0.274244, -0.512004, 0.749338)
+bones/14/rotation = Quaternion(-0.692793, -0.23225, 0.281848, 0.621819)
+bones/15/rotation = Quaternion(0.755875, -0.00111228, 0.116085, 0.644342)
+bones/16/rotation = Quaternion(-3.69448e-17, 0.181012, 0.983481, 6.7286e-24)
+bones/18/rotation = Quaternion(0, 1.96455e-24, 0, 1)
+bones/19/rotation = Quaternion(0, 1.96455e-24, 0, 1)
+bones/20/rotation = Quaternion(0, 1.96455e-24, 0, 1)
+bones/21/rotation = Quaternion(-0.259156, -0.0982241, 0.605204, 0.746269)
+bones/22/rotation = Quaternion(-0.432171, 0.309474, -0.175819, 0.828578)
+bones/23/rotation = Quaternion(0.640323, 0.0889459, -0.0678214, 0.759918)
+bones/24/position = Vector3(1.08758, -0.305949, 1.27261)
+bones/24/rotation = Quaternion(-0.625713, -0.0793305, -0.329369, 0.702643)
+bones/25/position = Vector3(0.757403, -0.428229, 1.61614)
+bones/26/position = Vector3(1.33146, -0.300678, -1.3416)
+bones/26/rotation = Quaternion(-0.528749, -0.360361, -0.469494, 0.608391)
+bones/27/position = Vector3(0.910482, -0.657628, -0.870328)
+bones/28/position = Vector3(-1.09176, -0.305949, 1.28249)
+bones/28/rotation = Quaternion(-0.606798, 0.117572, 0.363038, 0.697264)
+bones/29/position = Vector3(-0.757403, -0.740269, 1.44699)
+bones/30/position = Vector3(-1.32406, -0.199535, -1.34046)
+bones/30/rotation = Quaternion(-0.597358, 0.25785, 0.37837, 0.658417)
+bones/31/position = Vector3(-0.876744, -0.689138, -1.4818)
+
+[node name="Icosphere" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_1giwc")
